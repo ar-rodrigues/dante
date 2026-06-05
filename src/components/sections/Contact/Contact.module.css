@@ -1,0 +1,104 @@
+.section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 70vh;
+  border-bottom: var(--border-width) solid var(--border-color);
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 6rem 4rem;
+  background: var(--color-primary);
+  color: var(--color-bg);
+  border-right: var(--border-width) solid var(--border-color);
+}
+
+.title {
+  margin-bottom: var(--space-lg);
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3.5vw, 3.8rem);
+  font-weight: 900;
+  line-height: 1.05;
+}
+
+.accent {
+  color: var(--color-accent);
+  font-style: italic;
+}
+
+.description {
+  margin-bottom: 2.5rem;
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.8;
+  opacity: 0.85;
+}
+
+.ctaButton {
+  align-self: flex-start;
+}
+
+.right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--space-lg);
+  padding: 6rem 4rem;
+  background: var(--color-bg);
+}
+
+.rightTitle {
+  margin-bottom: var(--space-sm);
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.contactItem {
+  display: flex;
+  gap: var(--space-md);
+  align-items: center;
+  padding: 1.2rem 1.5rem;
+  border: var(--border-width) solid var(--border-color);
+  color: var(--color-text);
+  transition: background 0.25s, color 0.25s;
+}
+
+.contactItem:hover {
+  background: var(--color-text);
+  color: var(--color-bg);
+}
+
+.contactIcon {
+  font-size: 1.3rem;
+}
+
+.contactLabel {
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.5;
+}
+
+.contactValue {
+  font-size: 0.9rem;
+  font-weight: 400;
+}
+
+@media (max-width: 900px) {
+  .section {
+    grid-template-columns: 1fr;
+  }
+
+  .left,
+  .right {
+    padding: 4rem var(--space-lg);
+  }
+
+  .left {
+    border-right: none;
+  }
+}

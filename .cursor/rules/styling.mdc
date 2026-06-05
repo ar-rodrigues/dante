@@ -1,0 +1,36 @@
+---
+description: Convenciones de estilos con variables CSS
+globs: "**/*.{css,module.css}"
+alwaysApply: false
+---
+
+# Estilos con variables CSS
+
+## Fuente de tokens
+
+Todos los tokens viven en `src/styles/variables.css`. Extender ahí antes de hardcodear.
+
+## Reglas
+
+```css
+/* ❌ Valores mágicos */
+.card { padding: 24px; color: #C0251A; }
+
+/* ✅ Variables semánticas */
+.card {
+  padding: var(--space-lg);
+  color: var(--color-primary);
+}
+```
+
+- Colores: `var(--color-*)`
+- Espaciado: `var(--space-*)`
+- Tipografía: `var(--font-display)` o `var(--font-body)`
+- Bordes: `var(--border-width)`, `var(--border-color)`
+- Breakpoint móvil: `900px` vía `var(--breakpoint-md)` en media queries
+
+## CSS Modules
+
+- Un `.module.css` por componente
+- No importar CSS Modules en `globals.css`
+- Clases globales solo en `src/styles/globals.css` (`.font-display`, resets)

@@ -1,0 +1,46 @@
+---
+description: Integración de Ant Design 6 con Next.js
+globs: src/**/*.tsx
+alwaysApply: false
+---
+
+# Ant Design 6
+
+## Provider
+
+La app ya usa `AntdProvider` en `layout.tsx`. No crear ConfigProvider adicionales salvo sub-árboles con tema distinto.
+
+## Client components
+
+Componentes de `antd` requieren `'use client'`. Las páginas (server) importan wrappers de `components/ui/`, no `antd` directamente.
+
+```tsx
+// ❌ En page.tsx (server component)
+import { Button } from 'antd';
+
+// ✅ Wrapper client en components/ui/
+import { Button } from '@/components/ui';
+```
+
+## Imports
+
+No usar notación punto en sub-componentes:
+
+```tsx
+// ❌
+<Select.Option />
+
+// ✅
+import { Select } from 'antd';
+// o importar Option desde su path
+```
+
+## Theming
+
+- Tokens en `src/theme/antdTheme.ts` con valores hex estáticos
+- `cssVar: { key: 'dante' }` ya configurado
+- Estilos custom del proyecto usan `var(--color-*)`, no `--ant-*`
+
+## Métodos estáticos
+
+Para `message`, `Modal`, `notification`: usar hook `App.useApp()` dentro de client components (App wrapper ya incluido en AntdProvider).

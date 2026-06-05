@@ -1,0 +1,123 @@
+.section {
+  padding: 6rem var(--space-xl);
+  border-bottom: var(--border-width) solid var(--border-color);
+}
+
+.accent {
+  color: var(--color-primary);
+  font-style: italic;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border: var(--border-width) solid var(--border-color);
+}
+
+.item {
+  padding: 2.5rem 2rem;
+  border-right: var(--border-width) solid var(--border-color);
+  border-bottom: var(--border-width) solid var(--border-color);
+  transition: background 0.3s, color 0.3s;
+}
+
+.item:hover {
+  background: var(--color-text);
+  color: var(--color-bg);
+}
+
+.item:hover .icon {
+  border-color: var(--color-bg);
+  color: var(--color-accent);
+}
+
+.item:hover .tag {
+  background: var(--color-accent);
+  color: var(--color-text);
+  border-color: var(--color-accent);
+}
+
+.item:hover .listItem {
+  border-top-color: rgba(255, 255, 255, 0.15);
+}
+
+.item:nth-child(3n) {
+  border-right: none;
+}
+
+.item:nth-child(n + 4) {
+  border-bottom: none;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  margin-bottom: var(--space-lg);
+  border: var(--border-width) solid var(--border-color);
+  font-size: 1.3rem;
+  transition: all 0.3s;
+}
+
+.tag {
+  display: inline-block;
+  margin-bottom: var(--space-md);
+  padding: 0.2rem 0.7rem;
+  border: 1px solid var(--border-color);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition: all 0.3s;
+}
+
+.title {
+  margin-bottom: 0.8rem;
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.description {
+  font-size: 0.85rem;
+  font-weight: 300;
+  line-height: 1.7;
+}
+
+.list {
+  margin-top: 1.2rem;
+  list-style: none;
+}
+
+.listItem {
+  padding-block: 0.3rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  font-size: 0.8rem;
+  font-weight: 400;
+  transition: color 0.3s, border-color 0.3s;
+}
+
+@media (max-width: 900px) {
+  .section {
+    padding: 4rem var(--space-lg);
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .item {
+    border-right: none;
+    border-bottom: var(--border-width) solid var(--border-color);
+  }
+
+  .item:nth-child(n + 4) {
+    border-bottom: var(--border-width) solid var(--border-color);
+  }
+
+  .item:last-child {
+    border-bottom: none;
+  }
+}

@@ -1,0 +1,27 @@
+---
+description: Estándares DRY y principios generales del proyecto Dante
+alwaysApply: true
+---
+
+# Estándares del proyecto
+
+## DRY (Don't Repeat Yourself)
+
+- Si un patrón se repite 2+ veces, extraer a `src/components/ui/` o `src/components/layout/`.
+- No duplicar tokens de color, espaciado ni tipografía — usar variables de `src/styles/variables.css`.
+- Reutilizar componentes existentes antes de crear nuevos.
+
+## Alcance mínimo
+
+- Cambios enfocados en la tarea; no refactorizar código no relacionado.
+- No agregar dependencias sin necesidad.
+
+## Idioma
+
+- Todo texto de UI en **español**.
+- Comentarios de código en español cuando aporten contexto de negocio.
+
+## Imports
+
+- Usar alias `@/` para imports internos.
+- Exportar componentes desde barrel files (`components/ui/index.ts`).

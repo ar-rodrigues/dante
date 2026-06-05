@@ -1,0 +1,139 @@
+.section {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 7rem var(--space-xl) var(--space-xl);
+  gap: var(--space-lg);
+  align-items: center;
+  border-bottom: var(--border-width) solid var(--border-color);
+  position: relative;
+  overflow: hidden;
+}
+
+.bgText {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: var(--font-display);
+  font-size: 22vw;
+  font-weight: 900;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(192, 37, 26, 0.07);
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 0;
+  letter-spacing: -0.05em;
+}
+
+.left {
+  position: relative;
+  z-index: 1;
+}
+
+.tag {
+  margin-bottom: 1.8rem;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: clamp(2.8rem, 5vw, 5rem);
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  margin-bottom: var(--space-lg);
+}
+
+.accent {
+  color: var(--color-primary);
+  font-style: italic;
+}
+
+.subtitle {
+  max-width: 26.25rem;
+  margin-bottom: 2.5rem;
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.7;
+  color: var(--color-text-muted);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+}
+
+.right {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-md);
+}
+
+.card {
+  padding: 1.8rem 1.4rem;
+  border: var(--border-width) solid var(--border-color);
+  position: relative;
+  overflow: hidden;
+}
+
+.cardDark {
+  background: var(--color-text);
+  color: var(--color-bg);
+}
+
+.cardPrimary {
+  background: var(--color-primary);
+  color: var(--color-bg);
+  margin-top: 2rem;
+}
+
+.cardAccent {
+  background: var(--color-accent);
+  color: var(--color-text);
+  margin-top: -2rem;
+}
+
+.cardMuted {
+  background: var(--color-text-muted);
+  color: var(--color-bg);
+  border-color: var(--color-text-muted);
+  margin-top: 1.5rem;
+}
+
+.cardNumber {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.8rem;
+  font-family: var(--font-display);
+  font-size: 3rem;
+  font-weight: 900;
+  opacity: 0.12;
+}
+
+.cardTitle {
+  margin-bottom: var(--space-sm);
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.cardDescription {
+  font-size: 0.8rem;
+  font-weight: 300;
+  line-height: 1.6;
+}
+
+@media (max-width: 900px) {
+  .section {
+    grid-template-columns: 1fr;
+    min-height: auto;
+    padding: 6rem var(--space-lg) var(--space-xl);
+  }
+
+  .right {
+    display: none;
+  }
+}

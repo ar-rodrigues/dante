@@ -1,0 +1,26 @@
+:root {
+  /* Marca — Dante Creative Agency */
+  --color-primary: #c0251a;
+  --color-accent: #f5c842;
+  --color-bg: #faf6ef;
+  --color-text: #1a1209;
+  --color-text-muted: #3d2b1a;
+  --color-white: #ffffff;
+
+  /* Escala de espaciado */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 3rem;
+
+  /* Tipografía (sobrescritas por next/font en layout) */
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'DM Sans', system-ui, sans-serif;
+
+  /* Layout */
+  --border-width: 1.5px;
+  --border-color: var(--color-text);
+  --radius-sm: 4px;
+  --breakpoint-md: 900px;
+}

@@ -1,0 +1,39 @@
+---
+description: Patrones para componentes React reusables
+globs: src/components/**/*.tsx
+alwaysApply: false
+---
+
+# Componentes reusables
+
+## Estructura
+
+```
+ComponentName/
+├── ComponentName.tsx
+├── ComponentName.module.css
+```
+
+## Reglas
+
+- Un componente por carpeta; estilos en CSS Module colocado junto al `.tsx`.
+- Exportar desde `components/ui/index.ts` o `components/layout/index.ts`.
+- Props tipadas con `type`, no `interface` salvo extensión de librerías.
+- Componentes con Ant Design o hooks: `'use client'` al inicio del archivo.
+
+## Ejemplo
+
+```tsx
+// ❌ Estilos inline repetidos en la página
+<button style={{ background: '#C0251A' }}>CTA</button>
+
+// ✅ Componente reusable con variables CSS
+<Button variant="primary">Agenda asesoría sin costo</Button>
+```
+
+## Extracción
+
+Crear componente cuando:
+- El bloque se usa en 2+ lugares
+- Tiene variantes (primary, outline, etc.)
+- La página supera ~30 líneas de JSX para un solo bloque visual
