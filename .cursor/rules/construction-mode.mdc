@@ -1,0 +1,26 @@
+---
+description: Modo remodelación de la portada pública de Dante
+alwaysApply: true
+---
+
+# Modo remodelación
+
+## Estado actual
+
+`SITE_MODE` en `src/data/siteMode.ts` controla la portada:
+
+- `construction` → `/` muestra `ComingSoon` (diseño aprobado naranja `#e97525`)
+- `live` → `/` muestra el sitio completo (`HomePage`)
+
+El sitio completo siempre está en `/sitio` (sin indexar en buscadores).
+
+## Al volver a producción
+
+1. Cambiar `SITE_MODE` a `'live'` en `src/data/siteMode.ts`
+2. No borrar `ComingSoon` ni el asset `public/dante-remodelacion.png` sin pedirlo
+
+## Diseño de la portada
+
+- Tipografías: DM Sans 400 y DM Serif Display Italic 400
+- Solo enlace a Instagram (`dante.creativa`), sin WhatsApp
+- Hover del botón: `#ff9b24` con resplandor suave

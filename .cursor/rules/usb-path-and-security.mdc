@@ -1,0 +1,30 @@
+---
+description: Ruta USB con dos puntos y mantenimiento de seguridad de Next.js
+alwaysApply: true
+---
+
+# Ruta USB y seguridad
+
+## Comando `next: not found`
+
+El proyecto vive bajo un punto de montaje con `:` en la ruta
+(`/mnt/usb-...-0:0/...`). En Linux, `PATH` usa `:` como separador, así que
+`node_modules/.bin` deja de resolverse y scripts como `next dev` fallan.
+
+Los scripts de `package.json` deben invocar binarios vía `node` (no por `PATH`):
+
+```json
+"dev": "node ./node_modules/next/dist/bin/next dev",
+"lint": "node ./node_modules/eslint/bin/eslint.js"
+```
+
+No volver a `"next …"` / `"eslint"` mientras el repo esté en una ruta con `:`.
+
+## Actualizaciones de seguridad
+
+- Mantener `next` y `eslint-config-next` en la misma versión parcheada.
+- No usar `npm audit fix --force`: puede bajar `eslint` a v4 y romper el lint.
+- Forzar `minimatch@11.0.3` con `overrides` en `package.json` para cerrar
+  GHSA-g3hv-75wg-m249 sin tocar la versión de ESLint.
+- Tras un aviso crítico de Next, subir a la versión parcheada que indique
+  `npm audit` / el blog de seguridad de Next (por ejemplo `16.4.3+`).
