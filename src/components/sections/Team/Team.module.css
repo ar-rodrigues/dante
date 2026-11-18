@@ -34,7 +34,8 @@
   position: relative;
   min-width: 0;
   text-align: center;
-  padding-bottom: 85px;
+  /* Espacio para caption: nombre 2 líneas + rol 2 líneas */
+  padding-bottom: 105px;
   border: 0;
 }
 
@@ -70,13 +71,14 @@
 
 .caption {
   position: absolute;
-  top: calc(100% - 85px);
+  top: calc(100% - 105px);
   left: 0;
   right: 0;
   opacity: 0;
   transform: translateY(8px);
   transition: 0.3s;
   padding-top: 16px;
+  box-sizing: border-box;
 }
 
 .caption strong {
@@ -85,12 +87,18 @@
   font-size: 16px;
   line-height: 1.2;
   font-weight: 500;
+  /* Misma altura entre tarjetas: nombres de 1 o 2 líneas alinean el rol */
+  min-height: calc(1.2em * 2);
+  overflow-wrap: break-word;
 }
 
 .caption span {
   display: block;
   font-size: 12px;
   line-height: 1.4;
+  /* Roles largos (p. ej. Comunicación audiovisual) no desalinean vecinos */
+  min-height: calc(1.4em * 2);
+  overflow-wrap: break-word;
 }
 
 .person:hover .photo,
@@ -158,18 +166,18 @@
   .person {
     flex: 0 0 32.5%;
     scroll-snap-align: start;
-    padding-bottom: 110px;
+    padding-bottom: 120px;
   }
 
   .caption {
     opacity: 1;
     transform: none;
-    top: calc(100% - 110px);
+    top: calc(100% - 120px);
     padding-top: 12px;
   }
 
   .caption strong {
-    font-size: 16px;
+    font-size: 15px;
   }
 
   .caption span {

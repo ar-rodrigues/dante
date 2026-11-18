@@ -57,8 +57,14 @@ export function Services() {
                 <div className={styles.reveal}>
                   <p>{service.description}</p>
                   <p className={styles.examples}>{service.examples}</p>
-                  <a href="#empezar">Platiquemos ↗</a>
+                  <span className={styles.cta} aria-hidden="true">
+                    Platiquemos ↗
+                  </span>
                 </div>
+
+                <a href="#empezar" className={styles.cardLink}>
+                  Platiquemos
+                </a>
               </article>
             );
           })}

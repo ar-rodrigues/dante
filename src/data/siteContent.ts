@@ -270,7 +270,7 @@ export const faqItems: FaqItem[] = [
   {
     question: '¿Cuánto cuesta trabajar con Dante?',
     answer:
-      'Depende de lo que tu negocio necesite. No vendemos paquetes generalizados. La primera asesoría es gratis y nos permite cotizar con base en tu caso.',
+      'Depende tu negocio y sus objetivos. No tenemos paquetes base, después de una primer asesoría descubrimos y te proponemos los servicios que necesitas y cotizamos en base a eso.',
   },
   {
     question: '¿Cómo empezamos?',
