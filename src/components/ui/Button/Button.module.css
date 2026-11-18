@@ -1,60 +1,96 @@
 .button {
-  display: inline-block;
-  padding: 0.9rem 2rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  min-height: 48px;
+  padding: 15px 21px;
   font-family: var(--font-body);
-  font-size: 0.85rem;
+  font-size: 13px;
   font-weight: 500;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  letter-spacing: 0;
+  text-transform: none;
   text-decoration: none;
-  border: var(--border-width) solid transparent;
+  border: 1px solid var(--color-ink);
+  border-radius: var(--radius-pill);
   cursor: pointer;
-  transition: background 0.25s, color 0.25s, border-color 0.25s;
+  transition:
+    background-color 0.22s ease,
+    color 0.22s ease,
+    box-shadow 0.22s ease,
+    filter 0.22s ease,
+    transform 0.16s ease;
 }
 
 .primary {
-  background: var(--color-primary);
-  color: var(--color-white);
-  border-color: var(--color-primary);
+  background: var(--color-orange);
+  color: var(--color-ink);
 }
 
-.primary:hover {
+.outline,
+.alt {
   background: transparent;
-  color: var(--color-primary);
+  color: inherit;
 }
 
-.outline {
-  background: transparent;
-  color: var(--color-text);
-  border-color: var(--color-text);
-}
-
-.outline:hover {
-  background: var(--color-text);
-  color: var(--color-bg);
+.dark {
+  background: var(--color-ink);
+  /* !important: Ant Design fuerza a/a:hover a --ant-color-link (ink). */
+  color: var(--color-paper) !important;
 }
 
 .white {
   background: var(--color-white);
-  color: var(--color-primary);
+  color: var(--color-ink);
   border-color: var(--color-white);
 }
 
-.white:hover {
+.button:hover:not(:disabled) {
+  filter: brightness(0.94);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 0 #17171328;
+}
+
+a.dark:hover:not(:disabled),
+a.dark:active:not(:disabled) {
+  color: var(--color-paper) !important;
+}
+
+.alt:hover:not(:disabled),
+.outline:hover:not(:disabled) {
+  background: #17171310;
+  box-shadow: none;
+}
+
+.white:hover:not(:disabled) {
   background: transparent;
+  color: var(--color-white);
+  box-shadow: none;
+}
+
+a.white:hover:not(:disabled),
+a.white:active:not(:disabled) {
   color: var(--color-white);
 }
 
-.navCta {
-  padding: 0.55rem 1.4rem;
-  font-size: 0.82rem;
-  letter-spacing: 0.12em;
-  background: var(--color-primary);
-  color: var(--color-white);
-  border-color: var(--color-primary);
+.button:active:not(:disabled) {
+  transform: translateY(1px) scale(0.98);
+  filter: brightness(0.87);
+  box-shadow: none;
 }
 
-.navCta:hover {
-  background: transparent;
-  color: var(--color-primary);
+.button:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .button {
+    transition: none;
+  }
+
+  .button:hover:not(:disabled),
+  .button:active:not(:disabled) {
+    transform: none;
+  }
 }

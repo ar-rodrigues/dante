@@ -1,0 +1,133 @@
+.card {
+  position: relative;
+  border-radius: var(--radius-md);
+  padding: 22px;
+  min-height: 235px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: 46px minmax(85px, 1fr);
+  align-content: center;
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card:hover,
+.card:focus-within,
+.open {
+  transform: translateY(-5px);
+  box-shadow:
+    0 8px 18px color-mix(in srgb, var(--color-ink) 9%, transparent),
+    0 0 0 1px color-mix(in srgb, #e97526 33%, transparent);
+}
+
+.coral {
+  background: var(--color-coral);
+}
+
+.purple {
+  background: var(--color-purple);
+}
+
+.blue {
+  background: var(--color-blue);
+}
+
+.pink {
+  background: var(--color-pink);
+}
+
+.orange {
+  background: var(--color-orange);
+}
+
+.icon {
+  grid-area: 1 / 1;
+  align-self: start;
+  color: inherit;
+}
+
+.icon svg {
+  display: block;
+  width: 30px;
+  height: 30px;
+  margin-bottom: 16px;
+}
+
+.trigger {
+  grid-area: 2 / 1;
+  align-self: start;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 12px;
+  align-items: start;
+  width: 100%;
+  border: 0;
+  background: none;
+  padding: 0;
+  padding-right: 18px;
+  text-align: left;
+  cursor: pointer;
+  min-height: 44px;
+  transition: opacity 0.3s ease-out, visibility 0.3s ease-out;
+}
+
+.title {
+  margin: 0;
+  font-size: 24px;
+  line-height: 1.15;
+  font-weight: 500;
+  letter-spacing: -0.4px;
+}
+
+.plus {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  font-size: 24px;
+  line-height: 1;
+  transition: transform 0.3s ease-out;
+}
+
+.card:hover .plus,
+.card:focus-within .plus,
+.open .plus {
+  transform: rotate(45deg);
+}
+
+.detail {
+  grid-area: 2 / 1;
+  align-self: start;
+  margin: 0;
+  padding-right: 18px;
+  font-size: 14px;
+  line-height: 1.45;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease-out, visibility 0.3s ease-out;
+}
+
+.card:hover .trigger,
+.card:focus-within .trigger,
+.open .trigger {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.card:hover .detail,
+.card:focus-within .detail,
+.open .detail {
+  opacity: 1;
+  visibility: visible;
+}
+
+@media (max-width: 650px) {
+  .card {
+    min-height: 180px;
+    padding: 20px;
+  }
+
+  .title {
+    font-size: 22px;
+  }
+}

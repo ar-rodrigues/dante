@@ -20,6 +20,17 @@ Los scripts de `package.json` deben invocar binarios vía `node` (no por `PATH`)
 
 No volver a `"next …"` / `"eslint"` mientras el repo esté en una ruta con `:`.
 
+## Túnel `local.agilsolutions.lat`
+
+Next.js 16 bloquea `/_next/*` en desarrollo si el origen no es `localhost`.
+Mantener en `next.config.ts`:
+
+```ts
+allowedDevOrigins: ["local.agilsolutions.lat"],
+```
+
+Tras cambiarlo, reiniciar `npm run dev` (la config solo se lee al arrancar).
+
 ## Actualizaciones de seguridad
 
 - Mantener `next` y `eslint-config-next` en la misma versión parcheada.

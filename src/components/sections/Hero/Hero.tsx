@@ -1,60 +1,71 @@
-import { heroCards } from '@/data/siteContent';
-import { FadeUp } from '@/components/layout/FadeUp/FadeUp';
-import { Button, Tag } from '@/components/ui';
+'use client';
+
+import { useEffect, useRef, useState } from 'react';
+
+import { Button } from '@/components/ui';
+import { heroContent } from '@/data/siteContent';
+import { usePrefersReducedMotion } from '@/hooks/usePrefersReducedMotion';
 
 import styles from './Hero.module.css';
 
-const cardVariantClass = {
-  dark: styles.cardDark,
-  primary: styles.cardPrimary,
-  accent: styles.cardAccent,
-  muted: styles.cardMuted,
-} as const;
-
 export function Hero() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const reduced = usePrefersReducedMotion();
+  const [paused, setPaused] = useState(false);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video || reduced) return;
+    video.play().catch(() => setPaused(true));
+  }, [reduced]);
+
+  const toggleVideo = () => {
+    const video = videoRef.current;
+    if (!video) return;
+    if (video.paused) {
+      video.play().catch(() => undefined);
+      setPaused(false);
+    } else {
+      video.pause();
+      setPaused(true);
+    }
+  };
+
   return (
-    <section id="hero" className={styles.section}>
-      <div className={styles.bgText} aria-hidden="true">
-        D
-      </div>
+    <section id="inicio" className={styles.hero} aria-label="Inicio">
+      {!reduced ? (
+        <video
+          ref={videoRef}
+          className={styles.video}
+          src={heroContent.videoSrc}
+          poster={heroContent.posterSrc}
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+        />
+      ) : null}
+      <div className={styles.shade} aria-hidden />
 
-      <FadeUp className={styles.left}>
-        <Tag className={styles.tag}>✦ Agencia Creativa · Puebla, MX</Tag>
+      {!reduced ? (
+        <button type="button" className={styles.control} onClick={toggleVideo}>
+          {paused ? 'Reproducir ▷' : 'Pausar Ⅱ'}
+        </button>
+      ) : null}
 
-        <h1 className={styles.title}>
-          Impulsa tu marca con
-          <br />
-          <em className={styles.accent}>claridad, estrategia</em>
-          <br />y creatividad real.
+      <div className={styles.copy}>
+        <h1>
+          {heroContent.titleBefore} <em>{heroContent.titleEmphasis}</em>
         </h1>
-
-        <p className={styles.subtitle}>
-          Creamos e impulsamos marcas que viven, venden y crecen en línea. Sin rollos, sin
-          contratos interminables.
-        </p>
-
+        <p>{heroContent.description}</p>
         <div className={styles.actions}>
-          <Button variant="primary" href="#cta">
-            Agenda asesoría sin costo
-          </Button>
-          <Button variant="outline" href="#services">
-            Conoce servicios
+          <Button href={heroContent.primaryCta.href}>{heroContent.primaryCta.label}</Button>
+          <Button href={heroContent.secondaryCta.href} variant="alt" className={styles.alt}>
+            {heroContent.secondaryCta.label}
           </Button>
         </div>
-      </FadeUp>
-
-      <FadeUp className={styles.right} delay={80}>
-        {heroCards.map((card) => (
-          <article
-            key={card.number}
-            className={[styles.card, cardVariantClass[card.variant]].join(' ')}
-          >
-            <span className={styles.cardNumber}>{card.number}</span>
-            <h3 className={styles.cardTitle}>{card.title}</h3>
-            <p className={styles.cardDescription}>{card.description}</p>
-          </article>
-        ))}
-      </FadeUp>
+      </div>
     </section>
   );
 }

@@ -1,0 +1,33 @@
+---
+description: Estructura del sitio live Dante (secciones, datos, WhatsApp)
+alwaysApply: true
+---
+
+# Estructura del sitio live
+
+## Rutas
+
+- `/` — `ComingSoon` si `SITE_MODE === 'construction'`; `HomePage` si `live`
+- `/sitio` — siempre `HomePage`, con `robots: noindex`
+
+## Orden de secciones en `HomePage`
+
+Navbar → Hero → Marquee → Problems → Services → About (aliados) → Contact → Team → Portfolio → Funnel → ExpressServices → Faq → Footer → WhatsAppFloat
+
+## Datos y contacto
+
+- Copy en `src/data/siteContent.ts`, `portfolio.ts`, `contact.ts`
+- WhatsApp único: `525650099583` vía helpers de `contact.ts`
+- Assets en `public/` con rutas kebab-case (sin espacios)
+
+## Marca, favicons y preview de enlace
+
+- Logos: `public/logos/dante-oscuro.png` (fondos claros) y `dante-blanco.png` (fondos oscuros)
+- Favicons / iconos de app: `src/app/favicon.ico`, `icon.png`, `apple-icon.png`; copia estática en `public/favicon.png` y `public/apple-icon.png`
+- Preview WhatsApp / redes: `public/og-image.png` (1200×630) + metadatos Open Graph en `src/app/layout.tsx`
+- URL canónica de metadatos: `NEXT_PUBLIC_SITE_URL` (fallback `https://www.dantecreativa.com`) vía `metadataBase`
+- WhatsApp cachea previews: tras cambiar `og-image`, forzar re-scrape o probar con un query (`?v=2`) si no se actualiza
+
+## Remodelación
+
+Ver `.cursor/rules/construction-mode.mdc`. No borrar `ComingSoon` ni `dante-remodelacion.png` sin pedirlo.

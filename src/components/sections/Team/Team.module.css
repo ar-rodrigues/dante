@@ -1,0 +1,194 @@
+/* Réplica de #ds-equipo / .ds-team del HTML original (entrega Vercel). */
+
+.section {
+  padding-top: 40px;
+  padding-bottom: 30px;
+  scroll-margin-top: var(--header-offset);
+}
+
+.section h2 {
+  margin: 0;
+  max-width: 700px;
+  font-size: clamp(31px, 4.5vw, 48px);
+  line-height: 1.06;
+  letter-spacing: -1.7px;
+  font-weight: 500;
+}
+
+.team {
+  display: grid;
+  width: 100%;
+  max-width: 850px;
+  margin: 30px auto 0;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 24px;
+  align-items: start;
+  scrollbar-width: none;
+}
+
+.team::-webkit-scrollbar {
+  display: none;
+}
+
+.person {
+  position: relative;
+  min-width: 0;
+  text-align: center;
+  padding-bottom: 85px;
+  border: 0;
+}
+
+.trigger {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: none;
+  cursor: pointer;
+}
+
+.photo {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 0.66;
+  border-radius: 999px;
+  overflow: hidden;
+  background: var(--color-paper);
+  transition: transform 0.3s;
+}
+
+.photo img {
+  position: absolute;
+  width: 155%;
+  max-width: none;
+  height: 136%;
+  left: -27.5%;
+  top: -16%;
+  object-fit: fill;
+}
+
+.caption {
+  position: absolute;
+  top: calc(100% - 85px);
+  left: 0;
+  right: 0;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: 0.3s;
+  padding-top: 16px;
+}
+
+.caption strong {
+  display: block;
+  margin-bottom: 7px;
+  font-size: 16px;
+  line-height: 1.2;
+  font-weight: 500;
+}
+
+.caption span {
+  display: block;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.person:hover .photo,
+.person:focus-within .photo {
+  transform: translateY(-12px);
+}
+
+.person:hover .caption,
+.person:focus-within .caption {
+  opacity: 1;
+  transform: none;
+}
+
+.dots {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  margin-top: 8px;
+}
+
+.dots button {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 44px;
+  min-width: 34px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+}
+
+.dots button span {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--color-ink);
+  opacity: 0.25;
+  transition: opacity 0.3s, transform 0.3s;
+}
+
+.dots button[aria-pressed='true'] span {
+  opacity: 1;
+  transform: scale(1.35);
+}
+
+@media (max-width: 800px) {
+  .team {
+    gap: 12px;
+  }
+}
+
+@media (max-width: 650px) {
+  .team {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    max-width: none;
+    margin-top: 30px;
+    gap: 18px;
+    padding-top: 12px;
+  }
+
+  .person {
+    flex: 0 0 32.5%;
+    scroll-snap-align: start;
+    padding-bottom: 110px;
+  }
+
+  .caption {
+    opacity: 1;
+    transform: none;
+    top: calc(100% - 110px);
+    padding-top: 12px;
+  }
+
+  .caption strong {
+    font-size: 16px;
+  }
+
+  .caption span {
+    font-size: 12px;
+  }
+
+  .dots {
+    display: flex;
+  }
+
+  .dots button {
+    width: 28px;
+    min-width: 28px;
+  }
+}
+
+@media (hover: none) {
+  .caption {
+    opacity: 1;
+    transform: none;
+  }
+}

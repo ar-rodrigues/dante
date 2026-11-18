@@ -1,0 +1,12 @@
+---
+description: Obligar a leer el styleguide visual antes de tocar UI
+alwaysApply: true
+---
+
+# Styleguide visual
+
+Antes de crear o modificar UI, secciones, estilos o assets visuales, **lee** `docs/styleguide.md`.
+
+- Tokens solo en `src/styles/variables.css` (nombres alineados al styleguide).
+- Si cambia la marca visual, actualiza `docs/styleguide.md` en el mismo cambio.
+- No dupliques el styleguide aquí: este archivo solo apunta; el doc concentra las reglas.

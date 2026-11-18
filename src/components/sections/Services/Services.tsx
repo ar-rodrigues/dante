@@ -1,42 +1,69 @@
-import { services } from '@/data/siteContent';
-import { FadeUp } from '@/components/layout/FadeUp/FadeUp';
-import { SectionHeading } from '@/components/ui';
+'use client';
+
+import Image from 'next/image';
+import { useState } from 'react';
+
+import { FadeUp, PageContainer } from '@/components/layout';
+import { HorizontalRail } from '@/components/ui';
+import { servicesSection } from '@/data/siteContent';
 
 import styles from './Services.module.css';
 
 export function Services() {
-  return (
-    <section id="services" className={styles.section}>
-      <FadeUp>
-        <SectionHeading
-          title={
-            <>
-              Todo lo que necesitas para
-              <br />
-              <span className={styles.accent}>crecer en digital.</span>
-            </>
-          }
-          description="Soluciones personalizadas para cada etapa de tu marca. Elige lo que necesitas, cuando lo necesitas."
-        />
-      </FadeUp>
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
 
-      <div className={styles.grid}>
-        {services.map((service, index) => (
-          <FadeUp key={service.title} className={styles.item} delay={index * 80}>
-            <div className={styles.icon}>{service.icon}</div>
-            <span className={styles.tag}>{service.tag}</span>
-            <h3 className={styles.title}>{service.title}</h3>
-            <p className={styles.description}>{service.description}</p>
-            <ul className={styles.list}>
-              {service.items.map((item) => (
-                <li key={item} className={styles.listItem}>
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </FadeUp>
-        ))}
-      </div>
+  return (
+    <section id="servicios" className={styles.section} aria-labelledby="services-title">
+      <PageContainer>
+        <FadeUp>
+          <p className={styles.kicker}>{servicesSection.kicker}</p>
+          <h2 id="services-title" className={styles.title}>
+            {servicesSection.title}
+          </h2>
+        </FadeUp>
+
+        <HorizontalRail itemCount={servicesSection.items.length} label="Servicios">
+          {servicesSection.items.map((service, index) => {
+            const open = openIndex === index;
+            return (
+              <article
+                key={service.title}
+                className={[styles.card, styles[service.tone], open ? styles.open : '']
+                  .filter(Boolean)
+                  .join(' ')}
+              >
+                <div className={styles.top}>
+                  <span className={styles.tag}>{service.tag}</span>
+                  <button
+                    type="button"
+                    className={styles.heading}
+                    aria-expanded={open}
+                    onClick={() => setOpenIndex(open ? null : index)}
+                  >
+                    <h3>{service.title}</h3>
+                  </button>
+                </div>
+
+                <div className={styles.symbol}>
+                  <Image
+                    src={service.image}
+                    alt=""
+                    width={240}
+                    height={240}
+                    sizes="(max-width: 650px) 70vw, 200px"
+                  />
+                </div>
+
+                <div className={styles.reveal}>
+                  <p>{service.description}</p>
+                  <p className={styles.examples}>{service.examples}</p>
+                  <a href="#empezar">Platiquemos ↗</a>
+                </div>
+              </article>
+            );
+          })}
+        </HorizontalRail>
+      </PageContainer>
     </section>
   );
 }

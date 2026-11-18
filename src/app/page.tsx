@@ -12,7 +12,7 @@ export const metadata: Metadata = isUnderConstruction
   : {
       title: 'Dante Creative Agency',
       description:
-        'Agencia creativa de marketing digital y branding en Puebla, México.',
+        'Marketing, branding, audiovisual, desarrollo web y motion graphics. Aliados creativos en Puebla, Querétaro y Guadalajara.',
     };
 
 export const viewport: Viewport = isUnderConstruction

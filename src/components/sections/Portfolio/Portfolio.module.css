@@ -1,0 +1,335 @@
+/* Réplica de #ds-trabajo / .portfolio-grid del HTML original. */
+
+.section {
+  padding-block: var(--space-section-y);
+  background: var(--color-ink);
+  color: var(--color-paper);
+  scroll-margin-top: var(--header-offset);
+}
+
+.section h2 {
+  margin: 0 0 16px;
+  max-width: 700px;
+  font-size: clamp(31px, 4.5vw, 48px);
+  line-height: 1.06;
+  letter-spacing: -1.7px;
+  font-weight: 500;
+}
+
+.lead {
+  margin: 0 0 20px;
+  max-width: 640px;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+  width: 100%;
+  margin-top: 30px;
+  align-items: stretch;
+}
+
+.projectWrap {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-width: 0;
+}
+
+.project {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+  position: relative;
+  width: 100%;
+  /* Reserva el espacio del «Pausar video» para que las 4 tarjetas midan igual. */
+  padding-bottom: 44px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  width: 100%;
+  min-width: 0;
+  min-height: 100%;
+  text-align: left;
+  border: 0;
+  border-radius: 12px;
+  padding: 0;
+  background: var(--color-paper);
+  color: var(--color-ink);
+  overflow: hidden;
+  cursor: pointer;
+  font: inherit;
+  transition:
+    transform 0.28s ease,
+    box-shadow 0.28s ease;
+}
+
+.card:hover,
+.card:focus-visible {
+  transform: translateY(-6px);
+  box-shadow:
+    0 14px 28px color-mix(in srgb, #000 35%, transparent),
+    0 0 0 1px color-mix(in srgb, var(--color-orange) 40%, transparent);
+}
+
+.coverVideo,
+.coverImage {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1200 / 640;
+  object-fit: cover;
+  background: var(--color-paper);
+  transition: filter 0.28s ease, transform 0.35s ease;
+}
+
+.card:hover .coverVideo,
+.card:hover .coverImage,
+.card:focus-visible .coverVideo,
+.card:focus-visible .coverImage {
+  filter: brightness(1.08);
+  transform: scale(1.03);
+}
+
+.card:hover .cardBody em,
+.card:focus-visible .cardBody em {
+  transform: translate(2px, -2px);
+}
+
+.cardBody {
+  display: flex;
+  flex: 1;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 18px;
+}
+
+.cardBody strong {
+  display: block;
+  font-size: clamp(18px, 1.7vw, 25px);
+  line-height: 1.2;
+  font-weight: 500;
+}
+
+.cardBody small {
+  display: block;
+  font-size: 12px;
+  line-height: 1.45;
+  margin-top: 5px;
+}
+
+.cardBody em {
+  flex-shrink: 0;
+  font-style: normal;
+  font-size: 18px;
+  line-height: 1.2;
+  transition: transform 0.28s ease;
+}
+
+.coverToggle {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  display: block;
+  font-size: 12px;
+  border: 1px solid #ffffff55;
+  border-radius: 20px;
+  background: transparent;
+  color: var(--color-paper);
+  min-height: 36px;
+  padding: 6px 12px;
+  cursor: pointer;
+  transition:
+    background-color 0.22s ease,
+    filter 0.22s ease,
+    transform 0.16s ease;
+}
+
+.coverToggle:hover {
+  filter: brightness(0.94);
+  transform: translateY(-2px);
+}
+
+.dialog {
+  position: fixed;
+  inset: 0;
+  margin: auto;
+  width: min(760px, calc(100% - 32px));
+  max-height: calc(100dvh - 32px);
+  padding: 0;
+  border: 0;
+  border-radius: 16px;
+  background: var(--color-paper);
+  color: var(--color-ink);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.dialog::backdrop {
+  background: #171713d9;
+  backdrop-filter: blur(5px);
+}
+
+.panel {
+  padding: 0;
+}
+
+.close {
+  position: sticky;
+  display: block;
+  top: 12px;
+  margin: 12px 12px -56px auto;
+  z-index: 2;
+  width: 44px;
+  height: 44px;
+  border: 1px solid #17171335;
+  border-radius: 50%;
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-size: 29px;
+  cursor: pointer;
+}
+
+.panel h3 {
+  margin: 0 0 16px;
+  padding: 12px 20px 0;
+  font-size: 28px;
+  letter-spacing: -1px;
+  font-weight: 500;
+}
+
+.services {
+  margin: 0 0 12px;
+  padding: 0 20px;
+  font-size: 12px;
+  letter-spacing: 0.6px;
+}
+
+.description {
+  margin: 0 0 18px;
+  padding: 0 20px;
+  white-space: pre-line;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.media {
+  margin-bottom: 0;
+  background: #e9e5d9;
+  touch-action: pan-y pinch-zoom;
+}
+
+.dialogImage,
+.dialogVideo {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1200 / 640;
+  max-height: 48dvh;
+  object-fit: contain;
+  background: var(--color-paper);
+}
+
+.photoDots {
+  display: flex;
+  justify-content: center;
+  gap: 0;
+  padding: 4px 20px;
+}
+
+.photoDots button {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 44px;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.photoDots button span {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--color-ink);
+  opacity: 0.25;
+}
+
+.photoDots button[aria-pressed='true'] span {
+  opacity: 1;
+  transform: scale(1.35);
+}
+
+.brandNav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin: 0 20px 22px;
+  padding-top: 18px;
+  border-top: 1px solid #17171330;
+  font-size: 12px;
+}
+
+.brandNav button {
+  min-height: 44px;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  color: inherit;
+  font: inherit;
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (max-width: 850px) and (min-width: 651px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 650px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dialog {
+    width: calc(100% - 20px);
+    max-height: calc(100dvh - 20px);
+    border-radius: 12px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .coverVideo,
+  .coverImage,
+  .coverToggle {
+    transition: none;
+  }
+
+  .card:hover .coverVideo,
+  .card:hover .coverImage,
+  .coverToggle:hover {
+    filter: none;
+    transform: none;
+  }
+}

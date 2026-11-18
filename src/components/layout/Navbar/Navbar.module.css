@@ -1,51 +1,85 @@
-.nav {
-  position: fixed;
+.head {
+  position: sticky;
   top: 0;
-  left: 0;
-  right: 0;
-  z-index: 100;
+  z-index: 40;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1.2rem var(--space-xl);
-  background: var(--color-bg);
-  border-bottom: var(--border-width) solid var(--border-color);
+  gap: 20px;
+  padding: 23px 5%;
+  background: var(--color-paper);
+  border-bottom: 1px solid color-mix(in srgb, var(--color-ink) 16%, transparent);
+  box-shadow: 0 3px 12px color-mix(in srgb, var(--color-ink) 6%, transparent);
 }
 
 .logo {
-  font-family: var(--font-display);
-  font-size: 1.5rem;
-  font-weight: 900;
-  letter-spacing: -0.03em;
-  color: var(--color-primary);
+  display: block;
+  flex-shrink: 0;
+  width: 124px;
+  line-height: 0;
+  letter-spacing: normal;
 }
 
-.links {
+.logo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.nav {
   display: flex;
-  gap: 2.5rem;
   align-items: center;
-  list-style: none;
+  gap: 22px;
+  font-size: 13px;
 }
 
 .link {
-  font-size: 0.82rem;
-  font-weight: 500;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--color-text);
-  transition: color 0.2s;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  color: inherit;
+  text-decoration: none;
 }
 
-.link:hover {
-  color: var(--color-primary);
+.menu {
+  display: none;
+  width: 44px;
+  height: 44px;
+  border: 1px solid color-mix(in srgb, var(--color-ink) 31%, transparent);
+  border-radius: 50%;
+  background: none;
+  cursor: pointer;
 }
 
-@media (max-width: 900px) {
-  .nav {
-    padding: var(--space-md) var(--space-lg);
+@media (max-width: 650px) {
+  .head {
+    padding: 18px 6%;
   }
 
-  .links {
+  .head:has(.open) {
+    flex-wrap: wrap;
+  }
+
+  .logo {
+    width: 104px;
+  }
+
+  .menu {
+    display: block;
+  }
+
+  .nav {
     display: none;
+    width: 100%;
+    flex-wrap: wrap;
+    padding: 15px 0;
+    order: 3;
+  }
+
+  .open {
+    display: flex;
+    max-height: calc(100dvh - 100px);
+    overflow-y: auto;
   }
 }

@@ -1,8 +1,13 @@
 export { About } from './About/About';
 export { ComingSoon } from './ComingSoon/ComingSoon';
 export { Contact } from './Contact/Contact';
+export { ExpressServices } from './ExpressServices/ExpressServices';
+export { Faq } from './Faq/Faq';
+export { Funnel } from './Funnel/Funnel';
 export { Hero } from './Hero/Hero';
 export { HomePage } from './HomePage/HomePage';
 export { Marquee } from './Marquee/Marquee';
-export { Process } from './Process/Process';
+export { Portfolio } from './Portfolio/Portfolio';
+export { Problems } from './Problems/Problems';
 export { Services } from './Services/Services';
+export { Team } from './Team/Team';

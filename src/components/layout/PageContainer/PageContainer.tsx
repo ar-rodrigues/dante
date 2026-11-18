@@ -1,14 +1,26 @@
-import type { ReactNode } from 'react';
+import type { ElementType, ReactNode } from 'react';
 
 import styles from './PageContainer.module.css';
 
 type PageContainerProps = {
   children: ReactNode;
   className?: string;
+  as?: ElementType;
+  variant?: 'default' | 'section';
 };
 
-export function PageContainer({ children, className }: PageContainerProps) {
-  const classes = [styles.container, className].filter(Boolean).join(' ');
+export function PageContainer({
+  children,
+  className,
+  as: Tag = 'div',
+  variant = 'default',
+}: PageContainerProps) {
+  const classes = [
+    variant === 'section' ? styles.section : styles.container,
+    className,
+  ]
+    .filter(Boolean)
+    .join(' ');
 
-  return <div className={classes}>{children}</div>;
+  return <Tag className={classes}>{children}</Tag>;
 }

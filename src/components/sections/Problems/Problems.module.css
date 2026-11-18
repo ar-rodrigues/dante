@@ -1,0 +1,48 @@
+.section {
+  padding-block: var(--space-section-y);
+}
+
+.kicker {
+  margin: 0 0 20px;
+  font-size: 10px;
+  letter-spacing: 1.9px;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.title {
+  margin: 0 0 28px;
+  max-width: 700px;
+  font-size: clamp(31px, 4.5vw, 48px);
+  line-height: 1.06;
+  letter-spacing: -1.7px;
+  font-weight: 500;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 15px;
+}
+
+.note {
+  margin-top: 28px;
+}
+
+.note p {
+  margin: 0 0 16px;
+  max-width: 640px;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+@media (max-width: 650px) {
+  .section {
+    padding-block: 45px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+}

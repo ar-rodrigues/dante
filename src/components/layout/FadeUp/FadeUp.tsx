@@ -38,7 +38,11 @@ export function FadeUp({ children, className, delay = 0 }: FadeUpProps) {
   const classes = [styles.fadeUp, className].filter(Boolean).join(' ');
 
   return (
-    <div ref={ref} className={classes}>
+    <div
+      ref={ref}
+      className={classes}
+      style={delay ? ({ '--reveal-delay': `${delay}ms` } as React.CSSProperties) : undefined}
+    >
       {children}
     </div>
   );

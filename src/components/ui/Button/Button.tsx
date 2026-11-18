@@ -2,7 +2,7 @@ import type { AnchorHTMLAttributes, ButtonHTMLAttributes, ReactNode } from 'reac
 
 import styles from './Button.module.css';
 
-type ButtonVariant = 'primary' | 'outline' | 'white' | 'navCta';
+type ButtonVariant = 'primary' | 'outline' | 'alt' | 'dark' | 'white';
 
 type BaseProps = {
   variant?: ButtonVariant;

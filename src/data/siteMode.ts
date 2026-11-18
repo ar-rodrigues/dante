@@ -5,6 +5,13 @@
  *
  * El sitio completo siempre queda disponible en `/sitio` como respaldo.
  */
-export const SITE_MODE = 'construction' as const;
+export type SiteMode = 'construction' | 'live';
 
-export const isUnderConstruction = SITE_MODE === 'construction';
+/** Cambia a `'construction'` para mostrar la portada de remodelación en `/`. */
+export const SITE_MODE: SiteMode = 'live';
+
+export function isSiteUnderConstruction(mode: SiteMode): boolean {
+  return mode === 'construction';
+}
+
+export const isUnderConstruction = isSiteUnderConstruction(SITE_MODE);

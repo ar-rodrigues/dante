@@ -1,11 +1,21 @@
 :root {
-  /* Marca — Dante Creative Agency */
-  --color-primary: #c0251a;
-  --color-accent: #f5c842;
-  --color-bg: #faf6ef;
-  --color-text: #1a1209;
-  --color-text-muted: #3d2b1a;
+  /* Paleta live — entrega Dante */
+  --color-paper: #f2f0e6;
+  --color-ink: #171713;
+  --color-orange: #ff9345;
+  --color-coral: #ff654f;
+  --color-purple: #aa96fa;
+  --color-pink: #f5a1bd;
+  --color-blue: #99d7f2;
   --color-white: #ffffff;
+  --color-muted: #716d60;
+
+  /* Alias semánticos */
+  --color-bg: var(--color-paper);
+  --color-text: var(--color-ink);
+  --color-text-muted: var(--color-muted);
+  --color-primary: var(--color-orange);
+  --color-accent: var(--color-coral);
 
   /* Portada de remodelación */
   --color-construction-bg: #e97525;
@@ -17,15 +27,21 @@
   --space-md: 1rem;
   --space-lg: 1.5rem;
   --space-xl: 3rem;
+  --space-section-y: 65px;
+  --space-section-x: 6%;
 
   /* Tipografía (sobrescritas por next/font en layout) */
-  --font-display: 'Playfair Display', Georgia, serif;
+  --font-display: var(--font-body);
   --font-script: 'DM Serif Display', Georgia, serif;
   --font-body: 'DM Sans', system-ui, sans-serif;
+  --font-emphasis: Georgia, 'Times New Roman', serif;
 
   /* Layout */
-  --border-width: 1.5px;
-  --border-color: var(--color-text);
-  --radius-sm: 4px;
-  --breakpoint-md: 900px;
+  --border-width: 1px;
+  --border-color: color-mix(in srgb, var(--color-ink) 30%, transparent);
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-pill: 50px;
+  --breakpoint-md: 650px;
+  --header-offset: 100px;
 }

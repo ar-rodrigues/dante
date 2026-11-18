@@ -1,16 +1,9 @@
 import type { Metadata } from 'next';
-import { DM_Sans, DM_Serif_Display, Playfair_Display } from 'next/font/google';
+import { DM_Sans, DM_Serif_Display } from 'next/font/google';
 
 import { AntdProvider } from '@/providers/AntdProvider';
 
 import './globals.css';
-
-const playfairDisplay = Playfair_Display({
-  variable: '--font-display',
-  subsets: ['latin'],
-  weight: ['700', '900'],
-  style: ['normal', 'italic'],
-});
 
 const dmSerifDisplay = DM_Serif_Display({
   variable: '--font-script',
@@ -22,12 +15,40 @@ const dmSerifDisplay = DM_Serif_Display({
 const dmSans = DM_Sans({
   variable: '--font-body',
   subsets: ['latin'],
-  weight: ['300', '400', '500'],
+  weight: ['300', '400', '500', '700'],
 });
 
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.dantecreativa.com';
+
+const siteDescription =
+  'Marketing, branding, audiovisual, desarrollo web y motion graphics. Aliados creativos en Puebla, Querétaro y Guadalajara.';
+
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: 'Dante Creative Agency',
-  description: 'Agencia creativa de marketing digital y branding en Puebla, México.',
+  description: siteDescription,
+  openGraph: {
+    type: 'website',
+    locale: 'es_MX',
+    siteName: 'Dante Creative Agency',
+    title: 'Dante Creative Agency',
+    description: siteDescription,
+    images: [
+      {
+        url: '/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'Logo de Dante Creative Agency',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Dante Creative Agency',
+    description: siteDescription,
+    images: ['/og-image.png'],
+  },
 };
 
 export default function RootLayout({
@@ -36,10 +57,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="es"
-      className={`${playfairDisplay.variable} ${dmSerifDisplay.variable} ${dmSans.variable}`}
-    >
+    <html lang="es" className={`${dmSerifDisplay.variable} ${dmSans.variable}`}>
       <body>
         <AntdProvider>{children}</AntdProvider>
       </body>
