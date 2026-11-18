@@ -130,7 +130,7 @@ export const alliesSection = {
 
 export const contactSection = {
   titleBefore: 'Tu siguiente paso',
-  titleEmphasis: 'empieza platicando.',
+  titleEmphasis: 'empieza aquí.',
   description:
     'Dinos qué buscas para saber el punto de partida. Lo demás, lo resolvemos platicando.',
   flow: 'WhatsApp → Videollamada → Objetivos → Cotización a tu medida.',
