@@ -218,7 +218,7 @@ export const expressSection = {
   slides: [
     {
       eyebrow: 'Que te encuentren.',
-      title: 'Google Business',
+      title: 'Google My Business',
       description:
         'Tu ficha configurada y optimizada para Maps y búsquedas locales.',
       image: '/servicios-puntuales/google-business.png',
@@ -234,7 +234,7 @@ export const expressSection = {
     {
       eyebrow: 'El siguiente clic.',
       title: 'Cuenta publicitaria',
-      description: 'Meta Business configurado y listo para tus campañas.',
+      description: 'Ads Manager listo para configurar y encender tus anuncios.',
       image: '/servicios-puntuales/meta-business.png',
       href: whatsappUrl(expressWhatsapp.metaBusiness),
     },

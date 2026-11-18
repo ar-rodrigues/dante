@@ -47,7 +47,7 @@ export const portfolioProjects: PortfolioProject[] = [
     services:
       'Sitio web · Venta en línea · Campañas Publicitarias · Gestión Integral de redes',
     description:
-      'Producciones Caporal crea propuestas teatrales que conectan con las personas a través de historias que emocionan e inspiran.\n\nImpulsa el talento emergente y acerca nuevos públicos al teatro con obras como Más allá del cofre y Recuerdos de ti.',
+      'Producciones Caporal crea propuestas teatrales que conectan con las personas a través de historias que emocionan e inspiran.\n\nImpulsa el talento emergente y acerca nuevos públicos al teatro.',
     cover: {
       src: '/portafolio/producciones-caporal/sitio-web.png',
       alt: 'Sitio web de Producciones Caporal',
