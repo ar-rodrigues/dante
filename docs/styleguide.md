@@ -66,7 +66,7 @@ Orden: Navbar → Hero (video full-bleed) → Marquee → Problems → Services 
 
 ## Contacto
 
-- WhatsApp único: `+52 56 5009 9583` (`src/data/contact.ts`).
+- WhatsApp único: `+52 221 582 7771` (`src/data/contact.ts`).
 - Formulario = radios + un CTA a `wa.me` con mensaje precargado.
 - Redes: Instagram `dante.creativa`, Facebook `DanteCreativeAgency`, correo `dante.creativa@gmail.com`.
 

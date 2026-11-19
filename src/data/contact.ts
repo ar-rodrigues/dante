@@ -1,7 +1,7 @@
 /** Contacto y WhatsApp — fuente única. */
 
-export const WHATSAPP_NUMBER = '525650099583';
-export const WHATSAPP_DISPLAY = '+52 56 5009 9583';
+export const WHATSAPP_NUMBER = '522215827771';
+export const WHATSAPP_DISPLAY = '+52 221 582 7771';
 export const WHATSAPP_BASE = `https://wa.me/${WHATSAPP_NUMBER}`;
 
 export const CONTACT_EMAIL = 'dante.creativa@gmail.com';
