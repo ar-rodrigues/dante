@@ -134,7 +134,7 @@ export const contactSection = {
   description:
     'Dinos qué buscas para saber el punto de partida. Lo demás, lo resolvemos platicando.',
   flow: 'WhatsApp → Videollamada → Objetivos → Cotización a tu medida.',
-  legend: '¿Qué te gustaría lograr?',
+  legend: '¿Cuál es tu objetivo principal?',
   submitLabel: 'Enviar por WhatsApp ↗',
   choosePrompt: 'Elige un objetivo para preparar tu mensaje.',
 } as const;

@@ -1,9 +1,12 @@
 import type { Metadata } from 'next';
 import { DM_Sans, DM_Serif_Display } from 'next/font/google';
+import Script from 'next/script';
 
 import { AntdProvider } from '@/providers/AntdProvider';
 
 import './globals.css';
+
+const GTM_ID = 'GTM-WMKD2KKZ';
 
 const dmSerifDisplay = DM_Serif_Display({
   variable: '--font-script',
@@ -59,6 +62,17 @@ export default function RootLayout({
   return (
     <html lang="es" className={`${dmSerifDisplay.variable} ${dmSans.variable}`}>
       <body>
+        <Script id="gtm-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+          `}
+        </Script>
+        <Script
+          src={`https://www.googletagmanager.com/gtm.js?id=${GTM_ID}`}
+          strategy="afterInteractive"
+        />
         <AntdProvider>{children}</AntdProvider>
       </body>
     </html>

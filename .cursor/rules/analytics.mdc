@@ -1,0 +1,13 @@
+---
+description: Google Tag Manager y analítica del sitio
+alwaysApply: true
+---
+
+# Analítica
+
+## Google Tag Manager
+
+- Contenedor: `GTM-WMKD2KKZ`
+- Instalado en `src/app/layout.tsx` con `next/script` (`strategy="afterInteractive"`)
+- No duplicar el etiquetado de Google en otras páginas ni componentes
+- Si cambia el identificador del contenedor, actualizar la constante `GTM_ID` en el layout raíz
