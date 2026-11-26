@@ -43,7 +43,7 @@ No reintroducir la paleta placeholder (rojo `#c0251a` / crema `#faf6ef`). No har
 - **HorizontalRail**: scroll-snap + flechas + dots (servicios).
 - **Equipo**: en desktop, grid de 5 columnas centrado (`max-width: 850px`); en móvil, carrusel con dots (sin flechas). Fotos ovaladas compactas; caption al hover.
 - **WhatsApp flotante**: píldora fija inferior derecha, sombra `3px 3px 0` ink, texto «WhatsApp ↗».
-- **Footer**: fondo ink; logo blanco ~168px (144px móvil); statement con segunda frase en cursiva; `footline` en tres bloques (`copyright` | «VOLVER ARRIBA ↑» | redes + email + WhatsApp). Iconos sociales outline; hover: círculo `#ffffff18`, `translateY(-2px)`.
+- **Footer**: fondo ink; logo blanco ~168px (144px móvil); statement con segunda frase en cursiva; `footline` en tres bloques (`copyright` | «VOLVER ARRIBA ↑» | redes + email + WhatsApp). Enlaces e iconos en paper; en hover mantienen paper (sobrescriben el token ink de Ant Design) con opacidad ~0.72 en texto. Iconos sociales outline; hover: círculo `#ffffff18`, `translateY(-2px)`.
 - **Contact**: CTA «Enviar por WhatsApp ↗» en variante `dark` (fondo ink, texto paper), ancho 100% de la columna.
 - **Portfolio**: sección oscura; grid de 4 columnas en desktop (2 entre 651–850px); tarjetas paper con tipografía compacta y flecha a la derecha.
 - **Portafolio**: grid de marcas + `<dialog>`; dots cambian medios; flechas cambian marca; teclado ←/→ y swipe en medios.

@@ -47,6 +47,14 @@
 .backTop {
   color: inherit;
   text-decoration: none;
+  transition: opacity 0.22s ease;
+}
+
+/* !important: Ant Design fuerza a/a:hover a --ant-color-link (ink). */
+.backTop:hover,
+.backTop:active {
+  color: var(--color-paper) !important;
+  opacity: 0.72;
 }
 
 .contact {
@@ -62,6 +70,13 @@
   text-decoration: none;
   overflow-wrap: anywhere;
   min-height: 30px;
+  transition: opacity 0.22s ease;
+}
+
+.contact > a:hover,
+.contact > a:active {
+  color: var(--color-paper) !important;
+  opacity: 0.72;
 }
 
 .social {
@@ -76,24 +91,23 @@
   height: 44px;
   color: inherit;
   text-decoration: none;
+  border-radius: 50%;
   transition:
     background-color 0.22s ease,
     color 0.22s ease,
     box-shadow 0.22s ease,
-    filter 0.22s ease,
     transform 0.16s ease;
 }
 
 .social a:hover {
   background: #ffffff18;
-  border-radius: 50%;
-  filter: brightness(0.94);
+  color: var(--color-paper) !important;
   transform: translateY(-2px);
 }
 
 .social a:active {
+  color: var(--color-paper) !important;
   transform: translateY(1px) scale(0.98);
-  filter: brightness(0.87);
   box-shadow: none;
 }
 
