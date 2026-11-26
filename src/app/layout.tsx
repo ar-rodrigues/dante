@@ -6,7 +6,7 @@ import { AntdProvider } from '@/providers/AntdProvider';
 
 import './globals.css';
 
-const GTM_ID = 'GTM-WMKD2KKZ';
+const GTM_ID = 'GTM-KFCTT7J2';
 
 const dmSerifDisplay = DM_Serif_Display({
   variable: '--font-script',

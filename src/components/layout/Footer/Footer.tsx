@@ -1,7 +1,10 @@
+'use client';
+
 import Image from 'next/image';
 
 import { CONTACT_EMAIL, socialLinks, WHATSAPP_DISPLAY, whatsappUrl } from '@/data/contact';
 import { footerContent } from '@/data/siteContent';
+import { trackMetaContact } from '@/lib/metaPixel';
 
 import styles from './Footer.module.css';
 
@@ -51,8 +54,15 @@ export function Footer() {
               <FacebookIcon />
             </a>
           </div>
-          <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
-          <a href={whatsappUrl()} target="_blank" rel="noopener noreferrer">
+          <a href={`mailto:${CONTACT_EMAIL}`} onClick={trackMetaContact}>
+            {CONTACT_EMAIL}
+          </a>
+          <a
+            href={whatsappUrl()}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={trackMetaContact}
+          >
             WhatsApp · {WHATSAPP_DISPLAY}
           </a>
         </div>

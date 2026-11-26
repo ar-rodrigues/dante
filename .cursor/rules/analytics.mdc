@@ -7,7 +7,14 @@ alwaysApply: true
 
 ## Google Tag Manager
 
-- Contenedor: `GTM-WMKD2KKZ`
+- Contenedor: `GTM-KFCTT7J2`
 - Instalado en `src/app/layout.tsx` con `next/script` (`strategy="afterInteractive"`)
 - No duplicar el etiquetado de Google en otras páginas ni componentes
 - Si cambia el identificador del contenedor, actualizar la constante `GTM_ID` en el layout raíz
+
+## Meta Pixel — evento Contactar
+
+- Helper: `trackMetaContact()` en `src/lib/metaPixel.ts` → `fbq('track', 'Contact')`
+- Usarlo solo donde hay contacto real: flotante WhatsApp, formulario de contacto (envío), pie (WhatsApp y correo), «Me interesa» de servicios express
+- No usarlo en el menú del header ni en anclas internas (`#empezar`, etc.): eso no es Contactar y ensucia conversiones
+- Solo registra si el píxel base de Meta ya está cargado (p. ej. vía Tag Manager); no duplicar el píxel base en el layout salvo que lo pidan

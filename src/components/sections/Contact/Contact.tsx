@@ -7,6 +7,7 @@ import { Button } from '@/components/ui';
 import { contactGoals, whatsappUrl } from '@/data/contact';
 import { contactSection } from '@/data/siteContent';
 import { usePrefersReducedMotion } from '@/hooks/usePrefersReducedMotion';
+import { trackMetaContact } from '@/lib/metaPixel';
 
 import styles from './Contact.module.css';
 
@@ -68,7 +69,10 @@ export function Contact() {
             className={styles.send}
             aria-disabled={!href}
             onClick={(event: MouseEvent<HTMLAnchorElement>) => {
-              if (href) return;
+              if (href) {
+                trackMetaContact();
+                return;
+              }
               event.preventDefault();
               shakePrompt();
               const first = document.querySelector<HTMLInputElement>(

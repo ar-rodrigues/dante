@@ -7,6 +7,7 @@ import { FadeUp, PageContainer } from '@/components/layout';
 import { Button } from '@/components/ui';
 import { expressSection } from '@/data/siteContent';
 import { usePrefersReducedMotion } from '@/hooks/usePrefersReducedMotion';
+import { trackMetaContact } from '@/lib/metaPixel';
 
 import styles from './ExpressServices.module.css';
 
@@ -65,6 +66,7 @@ export function ExpressServices() {
                   href={slide.href}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={trackMetaContact}
                 >
                   Me interesa ↗
                 </Button>
